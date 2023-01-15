@@ -20,7 +20,7 @@ def checkJsonFiles(today):
                         print("IT's TODAY")
                         createSMS(d)
                     else:
-                        print(f"\ntoday is not {d['date'] skipping {d}}\n"
+                        print(f"\ntoday is not {d['date']} skipping {d}\n")
 
 def createSMS(d):
     number = d['number']
@@ -32,10 +32,13 @@ def createSMS(d):
     number = d['number']
     raw_message = d['message']
     message = raw_message.format(name=firstname)
-    print(number)
-    print(message)
-    responseCode = SMS.SendSms(phone_ip=PHONE_IP, port=PORT, number=number, message=message, auth_token=AUTH)
-    print(f"The response code is {responseCode}")
+    responseCode, responseText = SMS.SendSms(phone_ip=PHONE_IP, port=PORT, number=number, message=message, auth_token=AUTH)
+    if responseCode == 200:
+        print(f"Successfully sent {firstname} {lastname} {number} the message {message}")
+    else:
+        print(f"Failed to send {firstname} {lastname} {number} the message {message}")
+        print(f"Response Code is {responseCode}\nResponse Text is {responseText}\n")
+
 
 def main():
     load_dotenv()

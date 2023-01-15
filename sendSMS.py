@@ -6,7 +6,4 @@ class SMS:
         data = {"number": str(number), "message": str(message), "Authorization": str(auth_token)}
         headers = {'Content-type': 'application/json'}
         response = requests.post(url, json=data, headers=headers)
-        print(data)
-        print(response.status_code)
-        print(response.text)
-        return response.status_code
+        return response.status_code, response.text
