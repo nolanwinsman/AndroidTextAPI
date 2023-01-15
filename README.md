@@ -7,6 +7,12 @@ Note: This program only works with Android phones.
 
 This program requires you to setup the Android app first. View [**this repository**](https://github.com/nolanwinsman/KotlinSMSAPIApp) to setup the App.
 
+1. Install required modules
+
+```sh
+pip install -r requirments.txt
+```
+
 1. Create **.env** file in the root folder of this project with the following information. 
 You should change your AUTH Token inside the Android app, but by default it is **123456789**
 
@@ -16,11 +22,11 @@ You can find your phone's IP address in settings, about phone. Or you can open t
 
 ```sh
 AUTH=123456789
-PHONE_IP=<your phone's IP address>
+PHONE_IP=your phone's IP address
 PORT=9000
 ```
 
-2. Run test.py to validate if you are able to send SMS messages. It will prompt
+2. Run test.py to validate if you are able to send SMS messages. It will prompt you for all the information that is needed and it will make sure you setup *.env* correctly
 ```sh
 python test.py
 ```
@@ -56,3 +62,22 @@ uppercase is a boolean on if the message will have the first name in all caps or
 Happy Hypothetical Birthday JAKE
 
 Make sure the number is correct.
+
+# Contact
+
+Nolan Winsman - [@Github](https://github.com/nolanwinsman) - nolanwinsman@gmail.com
+
+Project Link: [https://github.com/nolanwinsman/AndroidTextAPI.git](https://github.com/nolanwinsman/AndroidTextAPI.git)
+
+# Contributers
+- nolanwinsman
+
+## Files
+
+- example.json : Example of how your json files inside the json/ folder should be setup
+- json/ : json folder that will hold json files that follow the template of example.json
+- main.py : script that checks every json object inside the .json files inside the json/ folder and if the current date is equal to what's inside the json object, it will 
+send the individual an SMS message based on the json object.
+- README.md : this file
+sendSMS.py : class that sends an SMS POST request to the Android App.
+- test.py : script to test if you set everything up correctly
