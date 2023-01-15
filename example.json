@@ -1,0 +1,27 @@
+[
+{
+"firstname":"Jake",
+"lastname":"Smith",
+"number":"123456789",
+"date":"01-15",
+"uppercase":"True",
+"message":"Happy Hypothetical Birthday {name}"
+},
+{
+"firstname":"John",
+"lastname":"Deer",
+"number":"123456789",
+"date":"02-20",
+"uppercase":"False",
+"message":"Happy Hypothetical Birthday {name}"
+},
+{
+"firstname":"Emily",
+"lastname":"Smith",
+"number":"123456789",
+"date":"12-25",
+"uppercase":"False",
+"message":"Happy Hypothetical Birthday {name}"
+}
+]
+
