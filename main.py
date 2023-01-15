@@ -48,7 +48,7 @@ def main():
     PHONE_IP = os.environ['PHONE_IP']
     global PORT
     PORT = os.environ['PORT']
-    if PORT is '' or PHONE_IP is '' or AUTH is '':
+    if PORT == '' or PHONE_IP == '' or AUTH == '':
         print(f'Failed to load in .env\nMake sure .env is in the root folder following the specifications in the README')
         exit()
     # Gets today's date and removes the year. So the format is "01-15"
