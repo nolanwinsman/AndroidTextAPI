@@ -48,11 +48,13 @@ def main():
     PHONE_IP = os.environ['PHONE_IP']
     global PORT
     PORT = os.environ['PORT']
+    if PORT is '' or PHONE_IP is '' or AUTH is '':
+        print(f'Failed to load in .env\nMake sure .env is in the root folder following the specifications in the README')
+        exit()
     # Gets today's date and removes the year. So the format is "01-15"
     today = str(date.today())[5:]
     print(f"checking the json files for {today}")
     checkJsonFiles(today)
-    # SMS.SendSms(phone_ip=phone_ip, port=port, number=number, message=message, auth_token=auth)
 
 
 if __name__ == "__main__":
