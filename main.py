@@ -37,6 +37,8 @@ def createSMS(d):
     raw_message = d['message']
     message = raw_message.format(name=firstname)
     responseCode, responseText = SMS.SendSms(phone_ip=PHONE_IP, port=PORT, number=number, message=message, auth_token=AUTH)
+    # responseCode = 200
+    # responseText = 'no response text'
     if responseCode == 200:
         print(f"Successfully sent {firstname} {lastname} {number} the message {message}")
     else:
@@ -56,7 +58,9 @@ def main():
         print(f'Failed to load in .env\nMake sure .env is in the root folder following the specifications in the README')
         exit()
     # Gets today's date and removes the year. So the format is "01-15"
-    today = str(date.today())[5:]
+    todayDate = date.today()
+    # converts today's date to the format "Month-Day" For example "01-15"
+    today = f"{todayDate.strftime('%m')}-{todayDate.strftime('%d')}"
     print(f"Checking the json files for {today}")
     checkJsonFiles(today)
 
