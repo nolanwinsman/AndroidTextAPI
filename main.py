@@ -10,6 +10,10 @@ PORT = ''
 
 def checkJsonFiles(today):
     folder_path = 'json'
+    if len(os.listdir(folder_path)) <= 1:
+        print(f"There are no .json files inside the json/ folder")
+        print("If you do have a single .json file inside the json/ folder and are still having this error, you might have accidentally deleted the .gitignore file")
+        exit()
     for filename in os.listdir(folder_path):
         if filename.endswith('.json'):
             filepath = os.path.join(folder_path, filename)
@@ -20,7 +24,7 @@ def checkJsonFiles(today):
                         print("IT's TODAY")
                         createSMS(d)
                     else:
-                        print(f"\ntoday is not {d['date']} skipping {d}\n")
+                        print(f"today is not {d['date']} skipping {d}")
 
 def createSMS(d):
     number = d['number']
@@ -53,7 +57,7 @@ def main():
         exit()
     # Gets today's date and removes the year. So the format is "01-15"
     today = str(date.today())[5:]
-    print(f"checking the json files for {today}")
+    print(f"Checking the json files for {today}")
     checkJsonFiles(today)
 
 
