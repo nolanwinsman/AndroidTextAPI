@@ -1,4 +1,4 @@
-# Text API
+# Android Text API
  This is a project to convert your android device to function as an API that can send text messages from your number. 
 
 ## Setup
