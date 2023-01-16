@@ -41,7 +41,7 @@ main.py is setup to automatically send an sms message for every **json** object 
 
 Inside the root of this project, there is **example.json** This is the format your json files will need to follow.
 
-```sh
+```json
 {
 "firstname":"Jake",
 "lastname":"Smith",
@@ -63,13 +63,14 @@ Happy Hypothetical Birthday JAKE
 
 Make sure the number is correct.
 
-# Contact
+## Contact
 
 Nolan Winsman - [@Github](https://github.com/nolanwinsman) - nolanwinsman@gmail.com
 
 Project Link: [https://github.com/nolanwinsman/AndroidTextAPI.git](https://github.com/nolanwinsman/AndroidTextAPI.git)
 
-# Contributers
+## Contributers
+
 - nolanwinsman
 
 ## Files
@@ -81,3 +82,8 @@ send the individual an SMS message based on the json object.
 - README.md : this file
 sendSMS.py : class that sends an SMS POST request to the Android App.
 - test.py : script to test if you set everything up correctly
+
+## Todo
+
+- crontab
+- if POST API call fails, try again later
