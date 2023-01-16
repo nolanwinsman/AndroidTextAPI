@@ -16,7 +16,7 @@ def main():
     print(f"Testing to send an SMS.\nThis will send an SMS message if all the information is correct")
     ip = input("Input Your Android Phone's IP Address\t")
     number = input("Input the phone number you want to send an SMS to\t")
-    message = input("Input the message you want to send to {number}\t")
+    message = input(f"Input the message you want to send to {number}\t")
     print(f"Is all this information correct?\nAUTH={auth}\nPhone IP Address={phone_ip}\nPort Number={port}\nNumber message will be sent to={number}\nMessage recipient will receive={message}")
     yes_no = input(f"Input yes if all the information is correct and you want to send an SMS message to {number}\t")
     if yes_no.lower() == 'yes' or yes_no.lower() == 'y':
