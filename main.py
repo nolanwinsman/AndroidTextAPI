@@ -3,10 +3,27 @@ from dotenv import load_dotenv
 from datetime import date
 import os
 import json
+import logging
 
 AUTH = ''
 PHONE_IP = ''
 PORT = ''
+
+# create a logger with a name
+logger = logging.getLogger('sms_log')
+logger.setLevel(logging.DEBUG)
+
+# create a file handler to write log
+file_handler = logging.FileHandler('sms.log')
+file_handler.setLevel(logging.DEBUG)
+
+# create a formatter
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+
+# add the file handler to the logger
+logger.addHandler(file_handler)
+
 
 def checkJsonFiles(today):
     folder_path = 'json'
@@ -21,7 +38,6 @@ def checkJsonFiles(today):
                 json_data = json.load(json_file)
                 for d in json_data:
                     if d['date'] == today:
-                        print("IT's TODAY")
                         createSMS(d)
                     else:
                         print(f"today is not {d['date']} skipping {d}")
@@ -37,13 +53,11 @@ def createSMS(d):
     raw_message = d['message']
     message = raw_message.format(name=firstname)
     responseCode, responseText = SMS.SendSms(phone_ip=PHONE_IP, port=PORT, number=number, message=message, auth_token=AUTH)
-    # responseCode = 200
-    # responseText = 'no response text'
+    # responseCode, responseText = 200, 'no response text' # use this line to test the code without actually sending an SMS
     if responseCode == 200:
-        print(f"Successfully sent {firstname} {lastname} {number} the message {message}")
+        logger.info(f"Successfully sent {firstname} {lastname} {number} the message {message}")
     else:
-        print(f"Failed to send {firstname} {lastname} {number} the message {message}")
-        print(f"Response Code is {responseCode}\nResponse Text is {responseText}\n")
+        logger.error(f"Failed to send {firstname} {lastname} {number} the message {message} Response Code is {responseCode} Response Text is {responseText}")
 
 
 def main():
