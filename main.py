@@ -24,6 +24,9 @@ file_handler.setFormatter(formatter)
 # add the file handler to the logger
 logger.addHandler(file_handler)
 
+main_py_directory = os.path.dirname(os.path.abspath(__file__))
+os.chdir(main_py_directory)
+
 
 def checkJsonFiles(today):
     folder_path = 'json'
