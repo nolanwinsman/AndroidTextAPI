@@ -9,6 +9,11 @@ AUTH = ''
 PHONE_IP = ''
 PORT = ''
 
+
+# Sets the directory to where main.py is
+main_py_directory = os.path.dirname(os.path.abspath(__file__))
+os.chdir(main_py_directory)
+
 # create a logger with a name
 logger = logging.getLogger('sms_log')
 logger.setLevel(logging.DEBUG)
@@ -24,11 +29,11 @@ file_handler.setFormatter(formatter)
 # add the file handler to the logger
 logger.addHandler(file_handler)
 
-main_py_directory = os.path.dirname(os.path.abspath(__file__))
-os.chdir(main_py_directory)
 
 
 def checkJsonFiles(today):
+    """Loops through every .json file inside the json folder
+    """
     folder_path = 'json'
     if len(os.listdir(folder_path)) <= 1:
         print(f"There are no .json files inside the json/ folder")
