@@ -61,6 +61,7 @@ def createSMS(d):
 
 
 def main():
+    logger.info('running main')
     load_dotenv()
     global AUTH
     AUTH = os.environ['AUTH']
