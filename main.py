@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from sendSMS import SMS 
 from dotenv import load_dotenv
 from datetime import date
